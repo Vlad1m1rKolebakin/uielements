@@ -1,0 +1,116 @@
+html{
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+h1,h2,h3,h4,h5,p {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.header__burger-btn {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: fuchsia;
+    position: relative;
+    z-index: 2;
+    
+}
+.header__burger-btn span {
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background-color: black;
+    left: 5px;
+    transition: transform .5s, opacity .5s, background-color .5s;
+}
+.header.open .header__burger-btn span{
+    background-color: white;
+}
+.header__burger-btn span:nth-child(1) {
+    transform: translateY(-10px);
+}
+.header__burger-btn span:nth-child(3) {
+    transform: translateY(10px);
+}
+
+.header.open .header__burger-btn span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+.header.open .header__burger-btn span:nth-child(2) {
+    opacity: 0;
+}
+.header.open .header__burger-btn span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+
+}
+
+
+.menu__list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .header__burger-btn {
+        display: block;
+    }
+
+    .menu {
+        position: absolute;
+        left: -350px;
+        top: 0;
+        background-color: fuchsia;
+        padding: 60px 20px 20px 20px;
+        width: 350px;
+        transition: transform .5s;
+        
+
+    }
+    .menu__list {
+        display: block;
+    }
+
+    .menu__link {
+        color: white;
+        font-size: 21px;
+        display: block;
+        padding: 10px 0;
+    }
+
+    .header.open .menu {
+        transform: translateX(100%);
+    }
+
+}
